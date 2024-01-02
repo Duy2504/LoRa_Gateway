@@ -22,6 +22,13 @@ void DeviceService::ledWifi_Off()
 {
   digitalWrite(ledWifi, LOW);
 }
+void DeviceService::ledWifi_Toggle()
+{
+  digitalWrite(ledWifi, HIGH);
+  delay(500);
+  digitalWrite(ledWifi, LOW);
+  delay(500);
+}
 
 void DeviceService::ledSM_On()
 {

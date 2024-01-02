@@ -46,8 +46,8 @@ void MQTT()
       Serial.println(" try again in 2 seconds");
       Serial.print("failed, rc=");
       Serial.println(client.state());
-      delay(2000);
-      deviceService.ledWifi_Off();
+      delay(500);
+      deviceService.ledWifi_Toggle();
     }
   }
   client.loop();
@@ -109,12 +109,12 @@ void loop()
   {
     wifiConfig.exit_smart();
   }
-  if(WiFi.status() == WL_CONNECTED)
+  if (WiFi.status() == WL_CONNECTED)
   {
     MQTT();
-    readSensor();    
+    readSensor();
   }
-  if (WiFi.status() != WL_CONNECTED)
+  else
   {
     deviceService.ledWifi_Off();
   }
@@ -157,5 +157,3 @@ void readSensor()
     checkData = false;
   }
 }
-
-

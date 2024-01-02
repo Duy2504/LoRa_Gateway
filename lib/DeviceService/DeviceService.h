@@ -20,6 +20,7 @@ public:
     bool longPress();
     void ledWifi_On();
     void ledWifi_Off();
+    void ledWifi_Toggle();
     void ledSM_On();
     void ledSM_Off();
 };
