@@ -5,7 +5,7 @@ void DeviceService::setup()
 {
   pinMode(readyLed, OUTPUT);
   digitalWrite(readyLed, HIGH);
-  pinMode(buttonWifi, INPUT);
+  pinMode(buttonWifi, INPUT_PULLUP);
   pinMode(ledWifi, OUTPUT);
   digitalWrite(ledWifi, LOW);
   pinMode(ledSM, OUTPUT);

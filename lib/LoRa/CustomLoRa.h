@@ -25,7 +25,6 @@ private:
 public:
     void setup_Lora();
     void tach_String(String data);
-    void read_Lora();
     String receiveLoRaMessage(); 
     void sendMessage(String message);
     bool checkId(String data, String targetID);

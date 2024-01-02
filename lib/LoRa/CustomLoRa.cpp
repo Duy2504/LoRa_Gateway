@@ -61,37 +61,6 @@ bool CustomLoRa::checkId(String data, String targetID)
   return false; // Không tìm thấy ID trong dữ liệu
 }
 
-void CustomLoRa::read_Lora()
-{
-  int packetSize = LoRa.parsePacket();
-  if (packetSize)
-  {
-    String data = "";
-    while (LoRa.available())
-    {
-      data += (char)LoRa.read();
-    }
-    Serial.print("Data Receive: ");
-    Serial.print(data);
-    Serial.print(" with: ");
-    Serial.println(LoRa.packetRssi());
-    Rssi = LoRa.packetRssi();
-    // Tách dữ liệu chỉ khi ID là 4402492
-    if (checkId(data, "4402492") || checkId(data, "1432308"))
-    {
-      tach_String(data);
-      checkData = true;
-    }
-    else
-    {
-      checkData = false;
-    }
-
-    // tach_String(data);
-    // xTaskCreatePinnedToCore(publishData, "publishData", 2048, NULL, 4, &handler_Publish, 1);
-  }
-}
-
 String CustomLoRa::receiveLoRaMessage()
 {
   int packetSize = LoRa.parsePacket();
