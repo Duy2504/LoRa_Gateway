@@ -95,7 +95,7 @@ void setup()
   wifiConfig.setupWifi();
   customLoRa.setup_Lora();
   espClient.setCACert(root_ca);
-  espClient.setInsecure();
+  // espClient.setInsecure();
   client.setServer(mqtt_server, mqtt_port);
   client.setCallback(callback);
 }
